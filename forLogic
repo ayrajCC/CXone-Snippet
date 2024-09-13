@@ -1,0 +1,31 @@
+IF TEST = 1
+{
+  ASSIGN Names = "john|don|bill|bob"
+  ASSIGN EyeColors = "Blue|Blue|Brown|Brown"
+  ASSIGN Signs = "Aquarius|Aries|Pisces|Leo"
+  ASSIGN Foods = "Spagetti|Pizza|Sushi|Deep Fried Twinkies"
+}
+
+DYNAMIC Persons
+
+ASSIGN PeopleCount = Names.size
+
+FOR i = 1 TO PeopleCount
+{
+  ASSIGN Persons[i].Name = "{Names[i]}"
+  ASSIGN Persons[i].Eyecolor = "{EyeColors[i]}"
+  ASSIGN Persons[i].Sign = "{Signs[i]}"
+  ASSIGN Persons[i].Food = "{Foods[i]}"
+}
+FOR i=1 TO 9
+{
+	a = "{a}{i}"
+}
+//Result: a="123456789"
+
+
+FOR i=9 TO 1
+{
+	b = "{b}{i}"
+}
+//Result: b="987654321"
