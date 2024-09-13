@@ -1,0 +1,13 @@
+ASSIGN username = "USER_NAME";
+ASSIGN password = "PASSWORD";
+
+ASSIGN response = HttpRequest("POST", "https://auth.example.com/api/login", {
+    username: username,
+    password: password
+});
+
+if (response.status == 200) {
+    Assign("authenticated", true);
+} else {
+    Assign("authenticated", false);
+}
