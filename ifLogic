@@ -1,0 +1,42 @@
+IF TEST = 1
+   {
+      ASSIGN contactID = "123456780"
+      ASSIGN customerName = "tester1"
+      ASSIGN CBWindowStart = #"{date} 8:00 AM"
+      ASSIGN CBWindowEnd = #"{date} 4:30 PM"
+   }
+
+//String Comparison
+
+IF customerName = "ABC Corporation"
+   {
+      ASSIGN contractLevel = "Gold"
+   }
+   ELSE
+      {
+         ASSIGN contractLevel = "Silver"
+      }
+
+//Numeric Comparision
+
+IF contactID % 10 = 0
+   {
+      ASSIGN logCall = 1
+   }
+   ELSE
+      {
+         ASSIGN logCall = 0
+      }
+
+//DateTime Comparison
+
+ASSIGN myTime = #"{time}"
+
+IF myTime >= CBWindowStart && myTime  <= CBWindowEnd
+   {
+      ASSIGN offerCallback = "True"
+   }
+   ELSE
+      {
+         ASSIGN offerCallback = "False"
+      }
