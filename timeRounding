@@ -1,0 +1,47 @@
+FUNCTION TimerRound(Timer)
+{
+  IF Timer = "-1"
+  {
+    ASSIGN Timer = Timer
+  }
+  ELSE
+  {
+    ASSIGN PeriodLocation = Timer.indexof('.')
+	IF PeriodLocation = 0
+	{
+	  ASSIGN Timer = Timer
+	}
+	ELSE
+	{
+	    ASSIGN DataLength = Timer.length
+	    IF DataLength - PeriodLocation <= 2
+	        {
+	          ASSIGN Timer = Timer
+            }   
+	    ELSE
+	     {
+            ASSIGN DigitCheck = Timer.substr(PeriodLocation + 3, PeriodLocation + 3)
+            IF DigitCheck >=5 && DigitCheck <= 9
+               {
+                  ASSIGN Timer = Timer + .01
+               }
+            ELSE
+              {
+                 ASSIGN Timer = Timer
+              }
+		
+            ASSIGN Timer = Timer.substr(1, PeriodLocation + 2)
+         }
+      }
+   }
+  
+   TRACE "{Timer}"
+   RETURN Timer
+}
+
+IF TEST = 1
+   {
+      ASSIGN DC1 = "1.931876668494874"
+   }   
+
+   ASSIGN DC1 = TimerRound(DC1)
