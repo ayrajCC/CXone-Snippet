@@ -1,0 +1,21 @@
+<html>
+    <head>
+    ...
+    </head>
+    <body>
+        ...
+        <script>
+            var scaleDroneChannelId = 'x';
+            var nicBusNumber        = '#######';
+            var nicChatPOC          = 'x';
+            var clusterNiC          = 'x##';
+            var surflyWidgetKey     = 'x';
+            var videoSignalerURL    = "https://home-x$$.nice-incontact.com/inContact/Manage/Scripts/Spawn.aspx?scriptName=varName&bus_no=#######&scriptId=#&skill_no=#&Guid=#";
+            var chatSignalerURL     = "https://home-x$$.nice-incontact.com/inContact/Manage/Scripts/Spawn.aspx?scriptName=varName&bus_no=#######&scriptId=#&skill_no=#&Guid=#";
+            var surflyModalTitle    = 'Start Videochat';
+            var surflyModalBody     = 'By clicking Accept, an agent will automatically join you in a videochat session. You will be prompted to enable/disable your camera and mute/unmute your microphone. You can access your audio settings using the gear icon. You can end the videochat at any time, by clicking ✕ in the menu or by closing this tab in your browser.';
+        </script>
+        <script type="text/javascript" src="https://nic.surfly.com/surfly-nic-script.js"></script>
+        ...
+    </body>
+</html>
