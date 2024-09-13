@@ -1,0 +1,32 @@
+// Function to make a generic API request
+function makeApiRequest(apiUrl, method, data, token) {
+    ASSIGN options = {
+        method: method,
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+
+    fetch(apiUrl, options)
+        .then(response => response.json())
+        .then(data => {
+            // Handle API response
+            console.log("API response data:", data);
+        })
+        .catch(error => {
+            // Handle API error
+            console.log("API request error:", error);
+        });
+}
+
+// Example usage
+ASSIGN apiUrl = "https://api.example.com/resource";
+ASSIGN method = "POST";  // or 'GET', 'PUT', 'DELETE'
+ASSIGN data = {
+    "param1": "value1",
+    "param2": "value2"
+};
+ASSIGN token = "your-bearer-token";
+makeApiRequest(apiUrl, method, data, token);
