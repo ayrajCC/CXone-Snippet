@@ -1,0 +1,8 @@
+DYNAMIC d
+d.params = "yourParams"
+ASSIGN jsonParams = "{d.asjson()}"
+
+ASSIGN url = "yourUrl"
+ASSIGN req = GetRESTProxy()
+req.ContentType = "application/json"
+ASSIGN result = req.MakeRestRequest(url, jsonParams, 0, "POST")
