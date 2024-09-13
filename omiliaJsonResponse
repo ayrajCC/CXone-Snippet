@@ -1,0 +1,14 @@
+DYNAMIC IncomingAttachedData
+ASSIGN IncomingAttachedData.locale="en-US"
+ASSIGN IncomingAttachedData.storeLocation="NYC"
+ASSIGN IncomingAttachedData.openingTime="8AM"
+ASSIGN IncomingAttachedData.status="open"
+IF log_ani = true
+{
+  ASSIGN IncomingAttachedData.Ani="{ANI}"
+}
+IF log_dnis = true
+{
+  ASSIGN IncomingAttachedData.Ani="{DNIS}"
+}
+ASSIGN appParameter="{IncomingAttachedData.asjson()}"
