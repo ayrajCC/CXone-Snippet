@@ -1,0 +1,12 @@
+USES "sf.dll"
+sforce = new SforceService()
+session = new SessionHeader()
+loginResult = sforce.login("your_email", "your_password")
+sforce.sessionHeaderValue = session
+session.sessionId = loginResult.sessionId
+sforce.url = loginResult.serverUrl
+
+t = new Task()
+t.Subject = "Task Subject"
+t.Description = "Task created via CXone integration"
+SaveResult = sforce.create(t)
