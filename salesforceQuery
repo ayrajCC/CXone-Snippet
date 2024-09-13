@@ -1,0 +1,29 @@
+// Function to query Salesforce data using SOQL
+function querySalesforce(instanceUrl, accessToken, soqlQuery) {
+    ASSIGN queryUrl = instanceUrl + "/services/data/v50.0/query/?q=" + encodeURIComponent(soqlQuery);
+
+    ASSIGN options = {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + accessToken,
+            'Content-Type': 'application/json'
+        }
+    };
+
+    fetch(queryUrl, options)
+        .then(response => response.json())
+        .then(data => {
+            // Handle successful query
+            console.log("Salesforce query result:", data);
+        })
+        .catch(error => {
+            // Handle query error
+            console.log("Salesforce query error:", error);
+        });
+}
+
+// Example usage
+ASSIGN instanceUrl = "https://your-instance.salesforce.com";
+ASSIGN accessToken = "your-access-token";
+ASSIGN soqlQuery = "SELECT Id, Name FROM Account WHERE Industry = 'Technology'";
+querySalesforce(instanceUrl, accessToken, soqlQuery);
