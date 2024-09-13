@@ -1,0 +1,6 @@
+ASSIGN proxy = GetRESTProxy()
+ASSIGN proxy.ContentType = "application/json"
+ASSIGN url = "https://catfact.ninja/fact"
+ASSIGN verb = "GET"
+ASSIGN result = proxy.MakeRestRequest(url, "", "JSON", verb)
+proxy.AddHeader("Authorization", "Bearer YOUR_TOKEN_HERE")
